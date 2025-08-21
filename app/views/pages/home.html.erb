@@ -2,10 +2,11 @@
 <h1>My Personal Home Page</h1>
 <p>You can see my blog below!</p>
 
-<% @posts.each do |post| %>
-  <%= render partial: "posts/post", locals: {post: post} %>
-<% end %>
+<%= link_to "New Post", new_post_path, class: "btn btn-primary mb-3" %>
 
-<a href="<%= about_path %>">About</a>
+
+<%= render partial: "posts/post", collection: @posts, as: :post %>
+
+<%= link_to "About", about_path %>
 
 </div>
