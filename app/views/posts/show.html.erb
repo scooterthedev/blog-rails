@@ -1,10 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
+    </div>
+  <% end %>
 
-<%= render @post %>
+<div class="card mb-4>
+  <div class="card-body>
+    <h2 class="card-title"><%= @post.title %></h2>
+    <p class="card-text"><%= simple_format(@post.body) %></p>
+    <small class="text-muted">Posted <%= time_ago_in_words(@post.created_at) %> ago</small>
+  </div>
+</div>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<div class="center justify-content-between">
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-primary" %>
+    <%= link_to "Back to posts", root_path, class: "btn btn-secondary" %>
+    <%= button_to "Destroy this post", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+</div>
 </div>

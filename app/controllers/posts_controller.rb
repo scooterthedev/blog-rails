@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
+        format.html { redirect_to root_path, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,9 +52,14 @@ class PostsController < ApplicationController
     @post.destroy!
 
     respond_to do |format|
-      format.html { redirect_to posts_path, notice: "Post was successfully destroyed.", status: :see_other }
+      format.html { redirect_to root_path, notice: "Post was successfully deleted.", status: :see_other }
       format.json { head :no_content }
     end
+  end
+
+  def share
+    # The code for sharing a post with someone.
+    @post = Post.find(params[:id])
   end
 
   private
