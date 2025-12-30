@@ -1,0 +1,10 @@
+<footer class="bg-light border-top py-3 mt-5" role="contentinfo">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <span class="text-muted small mb-2 mb-md-0">&copy; <%= Time.current.year %> Blog. All rights reserved.</span>
+    <nav aria-label="Footer">
+      <%= link_to "Home", root_path, class: "text-decoration-none mx-2 text-muted" %>
+      <%= link_to "About", about_path, class: "text-decoration-none mx-2 text-muted" %>
+      <a href="https://github.com/scooterthedev/blog-rails" target="_blank" rel="noopener" class="text-decoration-none mx-2 text-muted">GitHub</a>
+    </nav>
+  </div>
+</footer>
